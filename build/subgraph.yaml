@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: VRFD20
@@ -18,10 +18,10 @@ dataSources:
         - nftUpdated
       abis:
         - name: VRFD20
-          file: ./abis/VRFD20.json
+          file: VRFD20/abis/VRFD20.json
       eventHandlers:
         - event: NumberGenerated(indexed uint256)
           handler: handleNumberGenerated
         - event: nftUpdated(address,indexed uint256)
           handler: handlenftUpdated
-      file: ./src/vrfd-20.ts
+      file: VRFD20/VRFD20.wasm

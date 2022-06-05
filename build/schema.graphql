@@ -9,4 +9,5 @@ type RandomNumber @entity(immutable: true) {
   id: ID!
   value: BigInt!
   generatedTimestamp: BigInt!
+  epoch: Int
 }
