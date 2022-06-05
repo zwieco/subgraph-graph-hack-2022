@@ -1,0 +1,26 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: VRFD20
+    network: mumbai
+    source:
+      address: "0x0D84911f397Ae040eB6fB91604094b7704a073c3"
+      abi: VRFD20
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - NumberGenerated
+        - nftUpdated
+      abis:
+        - name: VRFD20
+          file: ./abis/VRFD20.json
+      eventHandlers:
+        - event: NumberGenerated(indexed uint256)
+          handler: handleNumberGenerated
+        - event: nftUpdated(address)
+          handler: handlenftUpdated
+      file: ./src/vrfd-20.ts
